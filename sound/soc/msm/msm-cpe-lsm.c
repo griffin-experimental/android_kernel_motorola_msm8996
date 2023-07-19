@@ -2228,10 +2228,8 @@ static int msm_cpe_lsm_ioctl(struct snd_pcm_substream *substream,
 	session = lsm_d->lsm_session;
 	lsm_ops = &cpe->lsm_ops;
 //HTC_AUD_START klockwork
-	if (!lsm_ops) {
-		err = -EINVAL;
-		goto done;
-	}
+	if (!lsm_ops)
+		return -EINVAL;
 //HTC_AUD_END
 
 	switch (cmd) {
@@ -2561,10 +2559,8 @@ static int msm_cpe_lsm_ioctl_compat(struct snd_pcm_substream *substream,
 	session = lsm_d->lsm_session;
 	lsm_ops = &cpe->lsm_ops;
 //HTC_AUD_START klockwork
-	if (!lsm_ops) {
-		err = -EINVAL;
-		goto done;
-	}
+	if (!lsm_ops)
+		return -EINVAL;
 //HTC_AUD_END
 
 	switch (cmd) {
